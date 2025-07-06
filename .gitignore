@@ -1,0 +1,8 @@
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+// Don't push diagrams
+/diagrams/*.drawio
+/diagrams/*.drawio.*
