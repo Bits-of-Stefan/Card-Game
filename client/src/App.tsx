@@ -1,20 +1,21 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
-import "./App.css";
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import { Button } from './components/ui/button';
+import './index.css';
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+  const [greetMsg, setGreetMsg] = useState('');
+  const [name, setName] = useState('');
 
   async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
+    // https://tauri.app/develop/calling-rust/
+    // setGreetMsg(await invoke('greet', { name })
+    setGreetMsg('Hello ' + name + '!');
   }
 
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
+    <main className="container1">
+      <h1>Welcome to Card Game</h1>
 
       <div className="row">
         <a href="https://vitejs.dev" target="_blank">
@@ -34,14 +35,13 @@ function App() {
         onSubmit={(e) => {
           e.preventDefault();
           greet();
-        }}
-      >
+        }}>
         <input
           id="greet-input"
           onChange={(e) => setName(e.currentTarget.value)}
           placeholder="Enter a name..."
         />
-        <button type="submit">Greet</button>
+        <Button type="submit">Greet</Button>
       </form>
       <p>{greetMsg}</p>
     </main>
