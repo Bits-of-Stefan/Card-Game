@@ -1,7 +1,7 @@
+import reactLogo from '@/assets/react.svg';
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import { Button } from './components/ui/button';
-import './index.css';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   const [greetMsg, setGreetMsg] = useState('');
@@ -44,6 +44,9 @@ function App() {
         <Button type="submit">Greet</Button>
       </form>
       <p>{greetMsg}</p>
+
+      <br />
+      <Outlet />
     </main>
   );
 }
